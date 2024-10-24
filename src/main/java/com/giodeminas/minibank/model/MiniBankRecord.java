@@ -1,4 +1,4 @@
-package com.giodeminas.minibank.entities;
+package com.giodeminas.minibank.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +19,7 @@ import org.springframework.data.annotation.LastModifiedBy;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+//TODO make us of Hibernate Envers
 public abstract class MiniBankRecord {
 
   @Id

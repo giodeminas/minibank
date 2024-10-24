@@ -1,6 +1,5 @@
 package com.giodeminas.minibank.dto;
 
-import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +16,7 @@ public class AccountDTO {
 
   private double balance;
 
-  private List<CustomerDTO> owners = new ArrayList<CustomerDTO>();
+  private List<CustomerDTO> owners;
 
   private int numberOfOwners;
 

@@ -1,5 +1,7 @@
 package com.giodeminas.minibank.dto;
 
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +12,14 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "customer", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"firstName", "lastName", "email", "phone"})
+})
 public class CustomerDTO {
+
+  private Long customerId;
+
+  private String accountNumber;
 
   private String firstName;
 
@@ -22,7 +31,8 @@ public class CustomerDTO {
 
   private List<AddressDTO> addresses;
 
-  public CustomerDTO(String firstName, String lastName, String email, String phone) {
+  public CustomerDTO(String accountNumber, String firstName, String lastName, String email, String phone) {
+    this.accountNumber = accountNumber;
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
