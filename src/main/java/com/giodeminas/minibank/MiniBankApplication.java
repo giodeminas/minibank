@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
 @EnableJpaAuditing
-public class MinibankApplication {
+public class MiniBankApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(MinibankApplication.class, args);
+    SpringApplication.run(MiniBankApplication.class, args);
   }
 
 }

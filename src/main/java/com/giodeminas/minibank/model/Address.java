@@ -11,9 +11,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
+@Audited
 @Data
 @Builder
 @NoArgsConstructor

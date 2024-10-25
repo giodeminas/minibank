@@ -12,14 +12,15 @@ import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 
 @MappedSuperclass
 @Data
+@Audited
 @NoArgsConstructor
 @AllArgsConstructor
-//TODO make us of Hibernate Envers
 public abstract class MiniBankRecord {
 
   @Id

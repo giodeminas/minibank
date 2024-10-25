@@ -12,9 +12,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.hibernate.envers.Audited;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
+@Audited
 @Data
 @Builder
 @NoArgsConstructor
@@ -32,6 +34,13 @@ public class Account extends MiniBankRecord {
 
   @Column
   private int numberOfOwners;
+
+  public Account(String accountNumber) {
+    this.accountNumber = accountNumber;
+    this.balance = 0;
+    this.owners = new ArrayList<>();
+    this.numberOfOwners = 0;
+  }
 
   public Account(String accountNumber, double balance) {
     this.accountNumber = accountNumber;

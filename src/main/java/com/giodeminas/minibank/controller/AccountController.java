@@ -21,12 +21,12 @@ public class AccountController {
 
   @PostMapping
   public ResponseEntity<String> createAccount(@RequestBody AccountDTO accountDTO) {
-    AccountDTO newAccountDTO = accountService.createAccount(accountDTO);
-    if (newAccountDTO != null) {
+    try {
+      AccountDTO newAccountDTO = accountService.createAccount(accountDTO);
       return new ResponseEntity<>("New account with number '" + newAccountDTO.getAccountNumber()
           + "' created successfully!", HttpStatus.CREATED);
-    } else {
-      return new ResponseEntity<>("Failed to create a new account.", HttpStatus.BAD_REQUEST);
+    } catch (RuntimeException e) {
+      return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
   }
 
